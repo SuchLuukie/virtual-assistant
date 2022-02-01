@@ -1,0 +1,15 @@
+Virtual Assistant:
+	Description:
+		A virtual assistant that can do some basic tasks, made in python.
+		Basic tasks E.G. reminders, timers, web scraping, narrating.
+
+	Libraries:
+		- SpeechRecognition
+		- gTTS (Google text to speech)
+
+
+	To do:
+		☐	 Audio input
+		☐	 Speech recognition
+		☐	 Process Speech Recognition to text
+		☐	 Derive commands from processed text
