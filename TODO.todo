@@ -5,11 +5,20 @@ Virtual Assistant:
 
 	Libraries:
 		- SpeechRecognition
+		- PyAudio (Supports SpeechRecognition for Microphones)
 		- gTTS (Google text to speech)
 
 
 	To do:
-		☐	 Audio input
 		☐	 Speech recognition
+		☐	 Ambient noise reduction
+		☐	 Multi language support
 		☐	 Process Speech Recognition to text
-		☐	 Derive commands from processed text
+		☐	 Derive commands from processed text (Keywords)
+		☐	 Command and keyword association 
+		☐	 Command: Language Change
+		☐	 Command: Current Time
+
+
+Archive:
+	✔	 Audio input @done (22-02-02 11:44) @project(Virtual Assistant / To do)
