@@ -1,3 +1,4 @@
 {
-	"wake_trigger": "hello"
+	"wake_trigger": "hello",
+	"command_not_recognised_message": "command not recognised"
 }

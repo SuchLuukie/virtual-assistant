@@ -1,12 +1,26 @@
+# Import Files
+from text_processing_module import TextProcessingModule
+
 # Import libraries
+from playsound import playsound
 import speech_recognition as sr
+from gtts import gTTS
+
 
 class SpeechModule:
 	def __init__(self):
-		self.mic = sr.Microphone()
-		self.r = sr.Recognizer()
+		self.text_processing_module = TextProcessingModule(self)
+		#self.mic = sr.Microphone()
+		#self.r = sr.Recognizer()
 
-		self.listen_for_audio()
+		#self.listen_for_audio()
+		self.text_processing_module.process_text("hello, what time is it")
+
+
+	def text_to_speech(self, text):
+		tts = gTTS(text)
+		tts.save("temp/temp.mp3")
+		playsound("temp/temp.mp3")
 
 
 	def listen_for_audio(self):
@@ -25,4 +39,4 @@ class SpeechModule:
 
 	def audio_to_text(self, audio):
 		text = self.r.recognize_google(audio)
-		print(text)
+		self.text_processing_module(text)
