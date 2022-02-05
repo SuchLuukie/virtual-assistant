@@ -2,5 +2,9 @@
 	{
 		"keywords": ["what time is it right now", "what's the time right now", "what time is it", "what's the time", "what is the time"],
 		"command": "get_current_time"
+	},
+	{
+		"keywords": ["what's the weather like", "what is the weather like", "what's the forecast", "what is the forecast", "what's the weather", "what is the weather"],
+		"command": "weather_forecast"
 	}
 ]
