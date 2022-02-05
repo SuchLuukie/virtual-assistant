@@ -5,6 +5,8 @@ from text_processing_module import TextProcessingModule
 from playsound import playsound
 import speech_recognition as sr
 from gtts import gTTS
+import json
+import os
 
 
 class SpeechModule:
@@ -13,6 +15,8 @@ class SpeechModule:
 		self.mic = sr.Microphone()
 		self.r = sr.Recognizer()
 
+		self.phrase_timeout_time = json.load(open("settings.json"))["phrase_timeout_time"]
+
 		self.listen_for_audio()
 
 
@@ -20,6 +24,7 @@ class SpeechModule:
 		tts = gTTS(text)
 		tts.save("temp/temp.mp3")
 		playsound("temp/temp.mp3")
+		os.remove("temp/temp.mp3")
 
 
 	def listen_for_audio(self):
@@ -29,7 +34,7 @@ class SpeechModule:
 			self.r.adjust_for_ambient_noise(source, duration=1)
 			while self.listen:
 				try:
-					audio = self.r.listen(source)
+					audio = self.r.listen(source, phrase_time_limit=self.phrase_timeout_time)
 					self.audio_to_text(audio)
 			
 				# If unable to perform audo to text, continue to listen
@@ -38,4 +43,4 @@ class SpeechModule:
 
 	def audio_to_text(self, audio):
 		text = self.r.recognize_google(audio)
-		self.text_processing_module(text)
+		self.text_processing_module.process_text(text)

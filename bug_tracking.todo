@@ -1,7 +1,6 @@
 Speech recognition:
 	Bugs:
-
-
+		☐	 Stops listening for commands after executing one command.
 
 
 
@@ -12,4 +11,4 @@ Web Scraping:
 
 
 
-Archive:
+Archive:	✔	 Bug where sometimes text to speech has permission denied error when saving audio file @done (22-02-05 19:48) @project(Speech recognition / Bugs)

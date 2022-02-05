@@ -1,6 +1,6 @@
 [
 	{
-		"keywords": ["what time is it right now", "what's the time right now", "what time is it", "what's the time"],
+		"keywords": ["what time is it right now", "what's the time right now", "what time is it", "what's the time", "what is the time"],
 		"command": "get_current_time"
 	}
 ]

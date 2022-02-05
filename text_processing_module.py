@@ -12,11 +12,14 @@ class TextProcessingModule:
 
 
 	def process_text(self, text):
+		print(text)
 		if not self.includes_wake_trigger(text):
 			return
 
-		result = self.extract_command(text)
+		if len(self.extract_command_keywords(text)) == 0:
+			return
 
+		result = self.extract_command(text)
 		if result is None:
 			self.speech_module.text_to_speech(self.command_not_recognised_message)
 			return
@@ -33,7 +36,7 @@ class TextProcessingModule:
 
 		for command in self.commands_module.commands_dictionary:
 			for command_keyword in command["keywords"]:
-				if keywords in command_keyword:
+				if command_keyword in keywords:
 					class_method = getattr(CommandsModule, command["command"])
 					result = class_method(self.commands_module)
 					return result
@@ -47,7 +50,10 @@ class TextProcessingModule:
 
 
 	def includes_wake_trigger(self, text):
-		return self.wake_trigger in text.lower()
+		if len(text) <= len(self.wake_trigger):
+			return False
+
+		return self.wake_trigger.lower() in text.lower()
 
 
 	def load_settings(self):

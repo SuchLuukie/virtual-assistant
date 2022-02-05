@@ -1,4 +1,5 @@
 {
-	"wake_trigger": "hello",
+	"wake_trigger": "Athena",
+	"phrase_timeout_time": 5,
 	"command_not_recognised_message": "command not recognised"
 }
