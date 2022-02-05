@@ -13,7 +13,6 @@ class TextProcessingModule:
 
 	def process_text(self, text):
 		if not self.includes_wake_trigger(text):
-			print("No wake trigger")
 			return
 
 		result = self.extract_command(text)

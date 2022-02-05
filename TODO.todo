@@ -10,15 +10,15 @@ Virtual Assistant:
 
 
 	To do:
-		☐	 Speech recognition
 		☐	 Ambient noise reduction
 		☐	 Multi language support
-		☐	 Process Speech Recognition to text
-		☐	 Derive commands from processed text (Keywords)
-		☐	 Command and keyword association 
 		☐	 Command: Language Change
 		☐	 Command: Current Time
 
 
 Archive:
+	✔	 Speech recognition @done (22-02-05 17:05) @project(Virtual Assistant / To do)
+	✔	 Process Speech Recognition to text @done (22-02-05 17:05) @project(Virtual Assistant / To do)
+	✔	 Derive commands from processed text (Keywords) @done (22-02-05 17:05) @project(Virtual Assistant / To do)
+	✔	 Command and keyword association @done (22-02-05 17:05) @project(Virtual Assistant / To do)
 	✔	 Audio input @done (22-02-02 11:44) @project(Virtual Assistant / To do)

@@ -10,11 +10,10 @@ from gtts import gTTS
 class SpeechModule:
 	def __init__(self):
 		self.text_processing_module = TextProcessingModule(self)
-		#self.mic = sr.Microphone()
-		#self.r = sr.Recognizer()
+		self.mic = sr.Microphone()
+		self.r = sr.Recognizer()
 
-		#self.listen_for_audio()
-		self.text_processing_module.process_text("hello, what time is it")
+		self.listen_for_audio()
 
 
 	def text_to_speech(self, text):
