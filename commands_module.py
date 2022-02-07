@@ -7,7 +7,8 @@ import geocoder
 import json
 
 class CommandsModule:
-	def __init__(self):
+	def __init__(self, settings):
+		self.settings = settings
 		self.web_scraping_module = WebScrapingModule()
 		self.commands_dictionary = json.load(open("commands_dictionary.json"))
 

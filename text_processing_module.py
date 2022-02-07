@@ -5,10 +5,13 @@ from commands_module import CommandsModule
 import json
 
 class TextProcessingModule:
-	def __init__(self, speech_module):
+	def __init__(self, speech_module, settings):
+		self.settings = settings
 		self.speech_module = speech_module
-		self.commands_module = CommandsModule()
-		self.load_settings()
+		self.commands_module = CommandsModule(self.settings)
+
+		self.wake_trigger = self.settings["wake_trigger"]
+		self.command_not_recognised_message = self.settings["command_not_recognised_message"]
 
 
 	def process_text(self, text):
@@ -54,10 +57,3 @@ class TextProcessingModule:
 			return False
 
 		return self.wake_trigger.lower() in text.lower()
-
-
-	def load_settings(self):
-		self.settings = json.load(open("settings.json"))
-
-		self.wake_trigger = self.settings["wake_trigger"]
-		self.command_not_recognised_message = self.settings["command_not_recognised_message"]
