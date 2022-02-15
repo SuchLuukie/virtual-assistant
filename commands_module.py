@@ -11,7 +11,7 @@ class CommandsModule:
 	def __init__(self, settings):
 		self.settings = settings
 		self.web_scraping_module = WebScrapingModule(self.settings)
-		self.commands_dictionary = json.load(open("commands_dictionary.json"))
+		self.commands_dictionary = json.load(open("settings/commands_dictionary.json"))
 
 
 	def log_command(self, command, info):

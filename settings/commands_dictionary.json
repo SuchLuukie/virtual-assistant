@@ -1,0 +1,10 @@
+[
+	{
+		"command": "get_current_time",
+		"keywords_type": "str",
+		"keywords": [
+			"time"
+		],
+		"parameter": "location"
+	}
+]
