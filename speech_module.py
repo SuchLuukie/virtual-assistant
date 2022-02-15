@@ -20,6 +20,7 @@ class SpeechModule:
 		self.listen_for_audio()
 
 
+	# Function to perform text to speech using playsound library for audio
 	def text_to_speech(self, text):
 		tts = gTTS(text)
 		tts.save("temp/temp.mp3")
@@ -41,6 +42,8 @@ class SpeechModule:
 				except sr.UnknownValueError:
 					continue
 
+
+	# Recognize text from audio
 	def audio_to_text(self, audio):
 		text = self.r.recognize_google(audio)
 		self.text_processing_module.process_text(text)
