@@ -3,9 +3,9 @@ import requests
 import json
 
 class WebScrapingModule:
-	def __init__(self):
+	def __init__(self, settings):
+		self.settings = settings
 		self.api_keys = json.load(open("api_keys.json"))
-		self.settings = json.load(open("settings.json"))
 
 
 	def weather_map_api(self, latlon):

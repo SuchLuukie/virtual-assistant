@@ -1,5 +1,9 @@
 # Import files
 from speech_module import SpeechModule
 
+# Import libraries
+import json
+settings = json.load(open("settings.json"))
 
-SpeechModule()
+
+SpeechModule(settings)

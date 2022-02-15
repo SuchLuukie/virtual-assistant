@@ -10,12 +10,13 @@ import os
 
 
 class SpeechModule:
-	def __init__(self):
-		self.text_processing_module = TextProcessingModule(self)
+	def __init__(self, settings):
+		self.settings = settings
+		self.text_processing_module = TextProcessingModule(self, self.settings)
 		self.mic = sr.Microphone()
 		self.r = sr.Recognizer()
 
-		self.phrase_timeout_time = json.load(open("settings.json"))["phrase_timeout_time"]
+		self.phrase_timeout_time = self.settings["phrase_timeout_time"]
 
 		self.listen_for_audio()
 
