@@ -23,7 +23,7 @@ class CommandsModule:
 
 
 	# TODO
-	def math(self):
+	def math(self, text):
 		return
 
 
