@@ -1,4 +1,5 @@
 # Import files
+from distutils.command.clean import clean
 from commands_module import CommandsModule
 from intent_classifier_module import IntentClassifier
 
@@ -19,7 +20,6 @@ class CommandProcessingModule:
 
 	# Main function that gets called when speech was recognised.
 	def process_command(self, text):
-		print(text)
 		#If wake trigger is not in text don't look for commands
 		if not self.wake_trigger.lower() in text:
 			return
@@ -35,13 +35,15 @@ class CommandProcessingModule:
 		# Check if the text is a math question by looking for integers and operators
 		has_math = self.contains_math(text)
 
-		self.pick_command(text, prediction, has_math)
-
-		print(f"Prediction: {prediction}")
+		answer = self.execute_command(text, prediction, has_math)
+		return answer
 
 	
-	def pick_command(self, text, prediction, has_math):
-		return
+	def execute_command(self, text, prediction, has_math):
+		if has_math:
+			return self.commands_module.math(self.clean_text_for_math(text))
+		
+		return getattr(self.commands_module, prediction)()
 
 
 	# Check if there are integers or operators in a string.
@@ -54,3 +56,25 @@ class CommandProcessingModule:
 				return True
 		
 		return False
+
+
+	# Cleans the text so only integers/floats and operators are in the text
+	def clean_text_for_math(self, text):
+		text = text.split(" ")
+
+		clean_text = ""
+		for element in text:
+			if element in self.operators:
+				clean_text += f" {element}"
+			
+			if re.search('\d', element):
+				clean_text += f" {element}"
+				
+		return clean_text
+
+
+	# Checks if a string is an integer
+	def check_if_int(self, string):
+		if s[0] in ('-', '+'):
+			return s[1:].isdigit()
+		return s.isdigit()

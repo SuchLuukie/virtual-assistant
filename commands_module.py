@@ -11,7 +11,6 @@ class CommandsModule:
 	def __init__(self, settings):
 		self.settings = settings
 		self.web_scraping_module = WebScrapingModule(self.settings)
-		self.commands_dictionary = json.load(open("settings/commands_dictionary.json"))
 
 
 	def log_command(self, command, info):
@@ -22,9 +21,14 @@ class CommandsModule:
 		log_file.close()
 
 
-	# TODO
+	# ! currently only works with integers and not floats
+	# ! Unsafe using eval, just temporary
 	def math(self, text):
-		return
+		return eval(text)
+
+	# TODO
+	def greeting(self):
+		return "Hello!"
 
 
 	def get_current_time(self):
@@ -35,6 +39,7 @@ class CommandsModule:
 		return clean_time
 
 
+	# TODO Improve forecast, bit weird with the speech and wrong forecast
 	def weather_forecast(self):
 		local_latlon = geocoder.ip("me").latlng
 		forecast = self.web_scraping_module.weather_map_api(local_latlon)
