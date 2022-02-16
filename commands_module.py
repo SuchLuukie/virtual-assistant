@@ -22,6 +22,11 @@ class CommandsModule:
 		log_file.close()
 
 
+	# TODO
+	def math(self):
+		return
+
+
 	def get_current_time(self):
 		self.log_command("get_current_time", "")
 

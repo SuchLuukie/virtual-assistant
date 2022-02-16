@@ -1,0 +1,4 @@
+text,intent
+hows the weather,get_current_weather
+hello,greeting
+whats the forecast,get_current_weather

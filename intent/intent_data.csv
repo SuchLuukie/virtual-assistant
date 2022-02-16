@@ -1,0 +1,3 @@
+text,intent
+hows the weather?,get_current_weather
+hello,greeting

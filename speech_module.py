@@ -47,4 +47,4 @@ class SpeechModule:
 	# Recognize text from audio
 	def audio_to_text(self, audio):
 		text = self.r.recognize_google(audio)
-		self.text_processing_module.process_command(text)
+		self.text_processing_module.process_command(text.lower())
