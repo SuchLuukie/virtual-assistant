@@ -1,5 +1,5 @@
 # Import Files
-from text_processing_module import TextProcessingModule
+from command_processing_module import CommandProcessingModule
 
 # Import libraries
 from playsound import playsound
@@ -12,7 +12,7 @@ import os
 class SpeechModule:
 	def __init__(self, settings):
 		self.settings = settings
-		self.text_processing_module = TextProcessingModule(self, self.settings)
+		self.text_processing_module = CommandProcessingModule(self, self.settings)
 		self.mic = sr.Microphone()
 		self.r = sr.Recognizer()
 
@@ -47,4 +47,4 @@ class SpeechModule:
 	# Recognize text from audio
 	def audio_to_text(self, audio):
 		text = self.r.recognize_google(audio)
-		self.text_processing_module.process_text(text)
+		self.text_processing_module.process_command(text)
