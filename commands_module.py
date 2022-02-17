@@ -24,7 +24,7 @@ class CommandsModule:
 	# ! currently only works with integers and not floats
 	# ! Unsafe using eval, just temporary
 	def math(self, text):
-		return eval(text)
+		return str(eval(text))
 
 	# TODO
 	def greeting(self):

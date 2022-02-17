@@ -36,8 +36,8 @@ class CommandProcessingModule:
 		has_math = self.contains_math(text)
 
 		answer = self.execute_command(text, prediction, has_math)
-		return answer
-
+		self.speech_module.text_to_speech(answer)
+		
 	
 	def execute_command(self, text, prediction, has_math):
 		if has_math:
