@@ -8,6 +8,7 @@ class WebScrapingModule:
 		self.api_keys = json.load(open("settings/api_keys.json"))
 
 
+	# Gets the forecast from the OpenWeatherMap API
 	def weather_map_api(self, latlon):
 		weather_map_api_key = self.api_keys["OpenWeatherMap"]
 

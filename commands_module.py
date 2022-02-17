@@ -4,7 +4,6 @@ from web_scraping_module import WebScrapingModule
 # Import libraries
 from datetime import datetime
 import geocoder
-import json
 
 
 class CommandsModule:

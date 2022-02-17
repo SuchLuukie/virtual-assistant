@@ -1,5 +1,6 @@
 # Import files
 from distutils.command.clean import clean
+from uuid import RESERVED_FUTURE
 from commands_module import CommandsModule
 from intent_classifier_module import IntentClassifier
 
@@ -36,6 +37,8 @@ class CommandProcessingModule:
 		has_math = self.contains_math(text)
 
 		answer = self.execute_command(text, prediction, has_math)
+
+		return answer #For testcases
 		self.speech_module.text_to_speech(answer)
 		
 	

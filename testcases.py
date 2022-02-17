@@ -11,8 +11,20 @@ testCases = [
         "expected_result": cpm.commands_module.weather_forecast()
     },
     {
-        "input": "Athena what is 10 + 20",
-        "expected_result": 30
+        "input": "Athena what is 321 / 392",
+        "expected_result": str(321 / 392)
+    },
+    #{
+    #    "input": "Athena what is 321 x 392",
+    #    "expected_result": str(321 * 392)
+    #},
+    {
+        "input": "Athena what is 321 + 392",
+        "expected_result": str(321 + 392)
+    },
+    {
+        "input": "Athena what is 321 - 392",
+        "expected_result": str(321 - 392)
     },
     {
         "input": "hello Athena",

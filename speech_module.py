@@ -29,6 +29,7 @@ class SpeechModule:
 		os.remove("temp/temp.mp3")
 
 
+	# Main function to start listening for audio for the text to speech
 	def listen_for_audio(self):
 		self.listen = True
 		# Listen for audio, if audio is detected try to perform audio to text
