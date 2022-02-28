@@ -1,6 +1,4 @@
 # Import files
-from distutils.command.clean import clean
-from uuid import RESERVED_FUTURE
 from commands_module import CommandsModule
 from intent_classifier_module import IntentClassifier
 
