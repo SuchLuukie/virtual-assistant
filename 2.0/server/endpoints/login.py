@@ -16,7 +16,7 @@ class Login(Resource):
 
     def post(self):
         data = request.get_json(force=True)
-        return self.verify_login(data["username"], data["password"])
+        return self.verify_login(data["username"].lower(), data["password"])
 
 
     def verify_login(self, username, password):
@@ -37,5 +37,5 @@ class Login(Resource):
         for entry in db:
             if entry == uuid:
                 payload = db[uuid]
-                payload.update({"exp": datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(seconds=5)})
+                payload.update({"exp": datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(days=1)})
                 return jwt.encode(payload, self.secret_key)
