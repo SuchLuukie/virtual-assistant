@@ -1,10 +1,17 @@
 import requests
-from requests.auth import HTTPBasicAuth
+import time
 
 data = {
-    "command": "What's the weather like"
+    "username": "luuk tholen",
+    "password": "test"
 }
 
-r = requests.post("http://127.0.0.1:5000/command", json=data, auth=HTTPBasicAuth("luuk tholen", "test"))
+r = requests.post("http://127.0.0.1:5000/login", json=data)
+
 print(r)
 print(r.json())
+
+time.sleep(10)
+
+nr = requests.post("http://127.0.0.1:5000/command", json=data, headers=r.json())
+print(nr)

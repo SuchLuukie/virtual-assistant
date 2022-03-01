@@ -10,4 +10,4 @@ class Command(Resource):
     @auth.login_required
     def post(self):
         data = request.get_json(force=True)
-        return {"Success": True, "data": data}
+        return {"Success": True, "data": auth.current_user()}
