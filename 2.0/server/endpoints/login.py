@@ -20,7 +20,7 @@ class Login(Resource):
 
 
     def verify_login(self, username, password):
-        db = json.load(open("authentication/users.json"))
+        db = json.load(open("userData/users.json"))
         for user in db:
             if db[user]["username"] == username:
                 uuid = user
@@ -32,10 +32,14 @@ class Login(Resource):
         
 
     def generate_token(self, uuid):
-        db = json.load(open("authentication/users.json"))
+        db = json.load(open("userData/users.json"))
+        settings = json.load(open("userData/userSettings.json"))[uuid]
 
         for entry in db:
             if entry == uuid:
-                payload = db[uuid]
+                payload = {"uuid": uuid}
+                payload.update(db[uuid])
+                payload.update(settings)
                 payload.update({"exp": datetime.datetime.now(tz=datetime.timezone.utc) + datetime.timedelta(days=1)})
+            
                 return jwt.encode(payload, self.secret_key)

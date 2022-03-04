@@ -13,7 +13,7 @@ class Encryption:
 
     # Function to compare a given password to one in the database
     def compare_password(self, uuid, password):
-        db = json.load(open("authentication/users.json"))
+        db = json.load(open("userData/users.json"))
 
         salt = self.get_salt(uuid)
         salted_password = self.merge_salt_and_password(password, salt)
@@ -37,7 +37,7 @@ class Encryption:
     
     # Function to get salt
     def get_salt(self, uuid):
-        return json.load(open("authentication/salts.json"))[uuid]
+        return json.load(open("userData/salts.json"))[uuid]
 
 
     # Function to merge salt and password for future hashing
@@ -49,14 +49,14 @@ class Encryption:
     # Function to generate a randomized string of characters
     def generate_salt(self):
         salt = ""
-        for i in range(self.salt_length):
+        for _ in range(self.salt_length):
             salt += random.choice(self.chars)
         return salt
 
 
     # Function to store salt in database by UUID
     def store_salt(self, uuid, salt):
-        with open("salts.json", "r+") as file:
+        with open("userData/salts.json", "r+") as file:
             data = json.load(file)
             data.update({uuid: salt})
             json.dump(data, file)

@@ -2,6 +2,9 @@
 from flask import request
 from flask_restful import Resource
 
+# Import files
+from commandProcessing.commandProcessing import CommandProcessing
+
 # Import authentication
 from authentication.authentication import auth
 

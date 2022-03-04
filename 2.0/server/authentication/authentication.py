@@ -25,3 +25,13 @@ def verify_token(token):
 
     except jwt.InvalidSignatureError:
         return False
+
+
+def get_uuid_from_token(token):
+    header_data = jwt.get_unverified_header(token)
+    decoded = jwt.decode(
+        token,
+        secret_key,
+        algorithms=[header_data["alg"], ]
+    )
+    return decoded["uuid"]
