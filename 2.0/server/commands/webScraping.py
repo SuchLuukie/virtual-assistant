@@ -5,7 +5,7 @@ import json
 class WebScraping:
 	def __init__(self, settings):
 		self.settings = settings
-		self.api_keys = json.load(open("settings/api_keys.json"))
+		self.api_keys = json.load(open("api_keys.json"))
 
 
 	# Gets the forecast from the OpenWeatherMap API
