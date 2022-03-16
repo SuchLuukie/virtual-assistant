@@ -14,7 +14,6 @@ from authentication.authentication import auth, get_uuid_from_token
 # Command endpoint
 class Command(Resource):
     def __init__(self):
-        self.intent_classifier = IntentClassifier()
         self.operators = [
             "*",
             "/",
@@ -25,6 +24,8 @@ class Command(Resource):
 
     @auth.login_required
     def post(self):
+        self.intent_classifier = IntentClassifier()
+        
         # Get users uuid and settings
         uuid = get_uuid_from_token(auth.current_user())
         user_settings = self.get_user_settings(uuid)

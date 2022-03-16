@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <base target="_blank">
+  <meta charset="UTF-8" />
+  <title>Luuk Tholen</title>
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href= "{{url_for('static',filename='css/2048.css')}}"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" type="text/css">
+  <script src="{{url_for('static',filename='js/demo.js')}}"></script>
+  <script src="{{url_for('static',filename='js/background.js')}}"></script>
+</head>
+
+<body>
+
+<div id="particles">
+  <div id="intro">
+    <a href="minesweeper" target="_self" style="color: white;"><img src="{{url_for('static',filename='assets/minesweeper.png')}}"></i></a>
+    <a href="/" target="_self" style="color: white;"><i class="fas fa-home" style="font-size: 2em; padding-top: 10px;"></i></a>
+    <a href="tictactoe" target="_self" style="color: white;"><img src="{{url_for('static',filename='assets/tictactoe.png')}}"></i></a>
+  </div>
+
+  <div id="a2048">
+    <table id="table"></table>
+    <script src="{{url_for('static',filename='js/2048.js')}}"></script>
+    <button onclick="reset_game()"><i class="fas fa-redo" style="font-size: 2em; padding-top: 10px;"></i></button>
+    <p id="you_lost"></p>
+  </div>
+</div>
+
+</body>
+</html>
