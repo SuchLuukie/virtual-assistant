@@ -23,7 +23,7 @@ class Server:
 
         # Add the API endpoints
         self.api.add_resource(Command, "/api/command")
-        self.api.add_resource(Login, "/login")
+        self.api.add_resource(Login, "/api/login")
         self.api.add_resource(Reminders, "/api/reminders")
         self.api.add_resource(RemindersExample, "/api/reminders/example")
         self.api.add_resource(Intent_update, "/api/intent_update")
@@ -37,4 +37,4 @@ class Server:
 
 
 if __name__ == "__main__":
-	Server().app.run(host="0.0.0.0", port=2205, debug=False)
+	Server().app.run(debug=False)

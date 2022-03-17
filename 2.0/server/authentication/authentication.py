@@ -2,7 +2,7 @@
 from flask_jwt_extended import verify_jwt_in_request
 from flask_httpauth import HTTPTokenAuth
 from flask_jwt_extended import get_jwt
-from functools import wraps
+import functools
 import json
 import jwt
 
@@ -39,29 +39,11 @@ def get_uuid_from_token(token):
     return decoded["uuid"]
 
 
-# Custom is administrator decorator
-def admin_required(func):
-    @wraps(func)
-    def decorator(*args, **kwargs):
-        try:
-            verify_jwt_in_request()
-            token = get_jwt()
-            print(token)
-            header_data = jwt.get_unverified_header(token)
-            decoded = jwt.decode(
-                token,
-                secret_key,
-                algorithms=[header_data["alg"], ]
-            )
-
-        except jwt.ExpiredSignatureError:
-            return False
-
-        except jwt.InvalidSignatureError:
-            return False
-
-        if decoded["administrator"]:
-            return func(*args, **kwargs)
-        else:
-            return {"error": "Endpoint required administrator"}, 403
-    return decorator
+def is_admin(token):
+    header_data = jwt.get_unverified_header(token)
+    decoded = jwt.decode(
+        token,
+        secret_key,
+        algorithms=[header_data["alg"], ]
+    )
+    return decoded["administrator"]
