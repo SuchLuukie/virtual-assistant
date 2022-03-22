@@ -1,1 +1,48 @@
 2022-03-08 15:18:07, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-21 13:05:49, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-21 13:06:11, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-21 13:06:37, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 12:53:35, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 12:55:34, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:38:27, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:39:33, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:42:09, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:42:41, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:42:54, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:43:03, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:44:23, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:45:31, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:45:58, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:47:06, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:47:33, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 13:48:48, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 14:02:24, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 53.2192, 6.5667
+2022-03-22 14:03:30, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:03:59, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:07:41, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:08:16, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:09:03, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:11:31, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:12:08, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:12:25, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:12:31, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:14:48, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:19:51, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:20:38, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:27:00, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:27:32, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:27:56, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:28:56, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:29:04, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:29:15, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:29:38, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:30:08, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:30:19, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:30:26, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:31:03, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:31:12, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:31:20, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:33:06, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:40:58, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:41:21, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 
+2022-03-22 14:42:17, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, 

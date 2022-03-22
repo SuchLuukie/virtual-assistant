@@ -1,3 +1,5 @@
 text,intent
 hows the weather?,weather_forecast
 hello,greeting
+whats the weather like,weather_forecast
+whats the time,get_current_time

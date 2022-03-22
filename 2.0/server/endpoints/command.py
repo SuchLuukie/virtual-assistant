@@ -44,9 +44,8 @@ class Command(Resource):
                 status=400
             )
 
-        print(text)
         # Call intent classifier for it's prediction
-        prediction = self.intent_classifier.predict(text)
+        prediction= self.intent_classifier.predict(text)
 
         # Check if the text is a math question by looking for integers and operators
         has_math = self.contains_math(text)
@@ -55,7 +54,7 @@ class Command(Resource):
         if has_math:
             return commands.math(self.clean_text_for_math(text))
 
-        return getattr(commands, prediction)()
+        return getattr(commands, prediction)(text)
 
 
     # Returns the users settings

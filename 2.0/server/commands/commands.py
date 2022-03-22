@@ -2,8 +2,11 @@
 from commands.webScraping import WebScraping
 
 # Import libraries
+from timezonefinder import TimezoneFinder
 from datetime import datetime
+from geotext import GeoText
 import geocoder
+import pytz
 
 
 class Commands:
@@ -27,12 +30,19 @@ class Commands:
 
 
 	# TODO
-	def greeting(self):
+	def greeting(self, text):
 		return "Hello!"
 
 
-	# TODO Add timezone
-	def get_current_time(self):
+	# For now only countries
+	def get_current_time(self, text):
+		country = GeoText(text.title()).countries[0]
+		print(country)
+		timezones = pytz.all_timezones
+		print(timezones)
+		timezone = [tz for tz in timezones if country in tz]
+		print(timezone)
+
 		self.log_command(self.uuid, "get_current_time", "")
 
 		current_time = datetime.now()
@@ -41,7 +51,7 @@ class Commands:
 
 
 	# TODO Improve forecast, bit weird with the speech and wrong forecast
-	def weather_forecast(self):
+	def weather_forecast(self, text):
 		local_latlon = geocoder.ip("me").latlng
 		forecast = self.web_scraping.weather_map_api(local_latlon)
 

@@ -36,7 +36,6 @@ class CommandProcessingModule:
 
 		answer = self.execute_command(text, prediction, has_math)
 
-		return answer #For testcases
 		self.speech_module.text_to_speech(answer)
 		
 	
