@@ -1,10 +1,13 @@
 # Import files
+from distutils.command.clean import clean
+from posixpath import split
 from commands.webScraping import WebScraping
 
 # Import libraries
 from timezonefinder import TimezoneFinder
+from countryinfo import CountryInfo
 from datetime import datetime
-from geotext import GeoText
+import pycountry
 import geocoder
 import pytz
 
@@ -34,20 +37,37 @@ class Commands:
 		return "Hello!"
 
 
-	# For now only countries
+	# For now only countries and gets the time for the capital
+	# https://github.com/jannikmi/timezonefinder
 	def get_current_time(self, text):
-		country = GeoText(text.title()).countries[0]
-		print(country)
-		timezones = pytz.all_timezones
-		print(timezones)
-		timezone = [tz for tz in timezones if country in tz]
-		print(timezone)
+		if "in " in text.lower():
+			country_name = self.find_country_from_text(text)
+		else:
+			country_name = None
 
-		self.log_command(self.uuid, "get_current_time", "")
 
-		current_time = datetime.now()
-		clean_time = str(current_time.strftime("%I %M %p"))
-		return clean_time
+		if country_name is None:
+			current_time = datetime.now()
+			clean_time = str(current_time.strftime("%I %M %p"))
+			response = f"It's {clean_time}"
+
+			self.log_command(self.uuid, "get_current_time", "local")
+		
+		else:
+			country = CountryInfo(country_name)
+			tf = TimezoneFinder()
+			latitude, longitude = country.capital_latlng()
+			
+			capital_tz = tf.timezone_at(lng=longitude, lat=latitude)
+			tz = pytz.timezone(self.get_proper_timezone(capital_tz))
+			
+			time = datetime.now(tz)
+			clean_time = str(time.strftime("%I %M %p"))
+			response = f"It's {clean_time} in {country.capital()}, {country_name}"
+
+			self.log_command(self.uuid, "get_current_time", capital_tz)
+
+		return response
 
 
 	# TODO Improve forecast, bit weird with the speech and wrong forecast
@@ -58,3 +78,32 @@ class Commands:
 		self.log_command(self.uuid, "weather_forecast",
 		                 f"Location: {local_latlon[0]}, {local_latlon[1]}")
 		return forecast
+
+
+	def find_country_from_text(self, text):
+		split_text = text.split(" ")
+		# Double worded countries
+		for idx in range(len(split_text)):
+			try:
+				possible_country = f"{split_text[idx]} {split_text[idx+1]}"
+			except IndexError:
+				break
+
+			for country in pycountry.countries:
+				if country.name.lower() == possible_country.lower():
+					return country.name
+
+
+		# Single worded countries
+		for word in split_text:
+			for country in pycountry.countries:
+				if country.name.lower() == word.lower():
+					return country.name
+			
+		return None
+
+	def get_proper_timezone(self, arg):
+		timezones = pytz.all_timezones
+		for timezone in timezones:
+			if arg.lower() in timezone.lower():
+				return timezone
