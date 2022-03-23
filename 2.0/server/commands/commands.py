@@ -5,9 +5,8 @@ from commands.webScraping import WebScraping
 
 # Import libraries
 from timezonefinder import TimezoneFinder
-from countryinfo import CountryInfo
+from geopy.geocoders import Nominatim
 from datetime import datetime
-import pycountry
 import geocoder
 import pytz
 
@@ -17,6 +16,7 @@ class Commands:
 		self.uuid = uuid
 		self.settings = settings
 		self.web_scraping = WebScraping(self.settings)
+		self.geolocator = Nominatim(user_agent="athena_virtual_assistant")
 
 	def log_command(self, uuid, command, info = ""):
 		time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -41,31 +41,29 @@ class Commands:
 	# https://github.com/jannikmi/timezonefinder
 	def get_current_time(self, text):
 		if "in " in text.lower():
-			country_name = self.find_country_from_text(text)
+			long_lat = self.get_lat_long_from_text(text)
 		else:
-			country_name = None
+			long_lat = None
 
-
-		if country_name is None:
+		if long_lat is None:
 			current_time = datetime.now()
 			clean_time = str(current_time.strftime("%I %M %p"))
 			response = f"It's {clean_time}"
 
-			self.log_command(self.uuid, "get_current_time", "local")
+			self.log_command(self.uuid, "get_current_time", "timezone: local")
 		
 		else:
-			country = CountryInfo(country_name)
+			location = text[text.index("in ")+3:]
 			tf = TimezoneFinder()
-			latitude, longitude = country.capital_latlng()
 			
-			capital_tz = tf.timezone_at(lng=longitude, lat=latitude)
+			capital_tz = tf.timezone_at(lng=long_lat[1], lat=long_lat[0])
 			tz = pytz.timezone(self.get_proper_timezone(capital_tz))
 			
 			time = datetime.now(tz)
 			clean_time = str(time.strftime("%I %M %p"))
-			response = f"It's {clean_time} in {country.capital()}, {country_name}"
+			response = f"It's {clean_time} in {location}"
 
-			self.log_command(self.uuid, "get_current_time", capital_tz)
+			self.log_command(self.uuid, "get_current_time", f"timezone: {capital_tz}")
 
 		return response
 
@@ -75,32 +73,14 @@ class Commands:
 		local_latlon = geocoder.ip("me").latlng
 		forecast = self.web_scraping.weather_map_api(local_latlon)
 
-		self.log_command(self.uuid, "weather_forecast",
-		                 f"Location: {local_latlon[0]}, {local_latlon[1]}")
+		self.log_command(self.uuid, "weather_forecast", f"Location: {local_latlon[0]}, {local_latlon[1]}")
 		return forecast
 
 
-	def find_country_from_text(self, text):
-		split_text = text.split(" ")
-		# Double worded countries
-		for idx in range(len(split_text)):
-			try:
-				possible_country = f"{split_text[idx]} {split_text[idx+1]}"
-			except IndexError:
-				break
-
-			for country in pycountry.countries:
-				if country.name.lower() == possible_country.lower():
-					return country.name
-
-
-		# Single worded countries
-		for word in split_text:
-			for country in pycountry.countries:
-				if country.name.lower() == word.lower():
-					return country.name
-			
-		return None
+	def get_lat_long_from_text(self, text):
+		text = text[text.index("in ")+3:]
+		geocode = self.geolocator.geocode(text)
+		return [geocode.latitude, geocode.longitude]
 
 	def get_proper_timezone(self, arg):
 		timezones = pytz.all_timezones
