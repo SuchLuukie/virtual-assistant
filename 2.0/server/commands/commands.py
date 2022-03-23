@@ -37,11 +37,9 @@ class Commands:
 		return "Hello!"
 
 
-	# For now only countries and gets the time for the capital
-	# https://github.com/jannikmi/timezonefinder
 	def get_current_time(self, text):
 		if "in " in text.lower():
-			long_lat = self.get_lat_long_from_text(text)
+			long_lat = self.get_lon_lat_from_text(text)
 		else:
 			long_lat = None
 
@@ -56,7 +54,7 @@ class Commands:
 			location = text[text.index("in ")+3:]
 			tf = TimezoneFinder()
 			
-			capital_tz = tf.timezone_at(lng=long_lat[1], lat=long_lat[0])
+			capital_tz = tf.timezone_at(lng=long_lat[0], lat=long_lat[1])
 			tz = pytz.timezone(self.get_proper_timezone(capital_tz))
 			
 			time = datetime.now(tz)
@@ -68,19 +66,26 @@ class Commands:
 		return response
 
 
-	# TODO Improve forecast, bit weird with the speech and wrong forecast
 	def weather_forecast(self, text):
-		local_latlon = geocoder.ip("me").latlng
-		forecast = self.web_scraping.weather_map_api(local_latlon)
+		if "in " in text.lower():
+			long_lat = self.get_lon_lat_from_text(text)
+			#! Don't know why it doesn't work on negative lon/lat
+		else:
+			long_lat = geocoder.ip("me").latlng
+			long_lat = long_lat[::-1]
 
-		self.log_command(self.uuid, "weather_forecast", f"Location: {local_latlon[0]}, {local_latlon[1]}")
+		print(long_lat)
+		forecast = self.web_scraping.weather_map_api(long_lat)
+		self.log_command(self.uuid, "weather_forecast", f"Location: {long_lat[0]}, {long_lat[1]}")
+
 		return forecast
 
 
-	def get_lat_long_from_text(self, text):
+	def get_lon_lat_from_text(self, text):
 		text = text[text.index("in ")+3:]
 		geocode = self.geolocator.geocode(text)
-		return [geocode.latitude, geocode.longitude]
+		return [geocode.longitude, geocode.latitude]
+
 
 	def get_proper_timezone(self, arg):
 		timezones = pytz.all_timezones

@@ -9,16 +9,16 @@ class WebScraping:
 
 
 	# Gets the forecast from the OpenWeatherMap API
-	def weather_map_api(self, latlon):
+	def weather_map_api(self, lonlat):
 		weather_map_api_key = self.api_keys["OpenWeatherMap"]
-
+		print(lonlat)
 		forecast = requests.get("https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}&units={}".format(
-			latlon[0],
-			latlon[1],
+			lonlat[1],
+			lonlat[0],
 			weather_map_api_key,
 			self.settings["measuring_system"]
 		)).json()
 
-		info = "{} degrees and a {}".format(
-			round(forecast["main"]["temp"]), forecast["weather"][0]["main"])
+		info = "{} degrees and {}".format(
+			round(forecast["main"]["temp"]), forecast["weather"][0]["description"])
 		return info
