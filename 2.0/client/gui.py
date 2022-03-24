@@ -1,23 +1,31 @@
 # Import libraries
+from ctypes import alignment
 import tkinter as tk
+from turtle import width
 from PIL import Image, ImageTk
 from itertools import count, cycle
 
 class GUI:
-	def __init__(self, root):
-		self.root = root
+    def __init__(self, root):
+        self.root = root
+        # Basic settings for the window
+        self.root.title("The Program")
+        self.root.geometry("400x500")
+        self.root.configure(bg="#23272A")
 
-		# Basic settings for the window
-		self.root.title("The Program")
-		self.root.geometry("400x500")
-		self.root.configure(bg="#23272A")
-
-		# Define all the frames inside the window
-		self.background = background(self.root)
+        # Define all the frames inside the window
+        self.background = Background(self.root)
+        self.login_inputs = LoginForms(self.root)
 
 
 # Tk Frame that will hold login information
-class background(tk.Frame):
+class LoginForms(tk.Frame):
+    def __init__(self, root):
+        self.root = root
+        
+
+# Tk Frame that will hold background
+class Background(tk.Frame):
     def __init__(self, root):
         self.root = root
         self.frame = tk.Frame(self.root)
@@ -28,6 +36,7 @@ class background(tk.Frame):
         self.gif_label.load("background.gif")
 
 
+# Tk Label that handles animation of background gif
 class ImageLabel(tk.Label):
     def load(self, im):
         if isinstance(im, str):
