@@ -3,3 +3,6 @@ hows the weather?,weather_forecast
 hello,greeting
 whats the weather like,weather_forecast
 whats the time,get_current_time
+how are you,small_talk.how_am_i
+how are you doing,small_talk.how_am_i
+tell me a joke,small_talk.joke

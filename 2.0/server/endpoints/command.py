@@ -54,7 +54,12 @@ class Command(Resource):
         if has_math:
             return commands.math(self.clean_text_for_math(text))
 
-        return getattr(commands, prediction)(text)
+        if "." in prediction:
+            prediction = prediction.split(".")
+            return getattr(getattr(commands, prediction[0]), prediction[1])(text)
+            
+        else:
+            return getattr(commands, prediction)(text)
 
 
     # Returns the users settings

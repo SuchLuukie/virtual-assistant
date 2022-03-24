@@ -2,6 +2,7 @@
 from distutils.command.clean import clean
 from posixpath import split
 from commands.webScraping import WebScraping
+from commands.small_talk.small_talk import SmallTalk
 
 # Import libraries
 from timezonefinder import TimezoneFinder
@@ -17,6 +18,10 @@ class Commands:
 		self.settings = settings
 		self.web_scraping = WebScraping(self.settings)
 		self.geolocator = Nominatim(user_agent="athena_virtual_assistant")
+
+		# Extensions of commands for more organisation
+		self.small_talk = SmallTalk(self.settings, self.uuid)
+
 
 	def log_command(self, uuid, command, info = ""):
 		time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -36,7 +41,7 @@ class Commands:
 	def greeting(self, text):
 		return "Hello!"
 
-
+	# * Done
 	def get_current_time(self, text):
 		if "in " in text.lower():
 			long_lat = self.get_lon_lat_from_text(text)
@@ -65,16 +70,14 @@ class Commands:
 
 		return response
 
-
+	# ? Slightly inaccurate when asking for states. Other than that, done
 	def weather_forecast(self, text):
 		if "in " in text.lower():
 			long_lat = self.get_lon_lat_from_text(text)
-			#! Don't know why it doesn't work on negative lon/lat
 		else:
 			long_lat = geocoder.ip("me").latlng
 			long_lat = long_lat[::-1]
 
-		print(long_lat)
 		forecast = self.web_scraping.weather_map_api(long_lat)
 		self.log_command(self.uuid, "weather_forecast", f"Location: {long_lat[0]}, {long_lat[1]}")
 

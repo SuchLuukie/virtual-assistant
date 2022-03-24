@@ -11,7 +11,7 @@ class WebScraping:
 	# Gets the forecast from the OpenWeatherMap API
 	def weather_map_api(self, lonlat):
 		weather_map_api_key = self.api_keys["OpenWeatherMap"]
-		print(lonlat)
+		
 		forecast = requests.get("https://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&appid={}&units={}".format(
 			lonlat[1],
 			lonlat[0],
