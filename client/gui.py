@@ -6,7 +6,7 @@ from itertools import count, cycle
 # Import files
 from login import Login
 
-class LoginGUI:
+class GUI:
     def __init__(self, root):
         self.root = root
 

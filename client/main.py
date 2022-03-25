@@ -2,12 +2,12 @@
 import tkinter as tk
 
 # Import files
-from gui import LoginGUI
+from gui import GUI
 
 
 def main():
 	root = tk.Tk()
-	app = LoginGUI(root)
+	app = GUI(root)
 
 	root.mainloop()
 
