@@ -1,0 +1,8 @@
+2022-03-25 18:12:49, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 151.2164539, -33.8548157
+2022-03-25 18:13:24, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 6.7611, 53.1617
+2022-03-25 18:14:10, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 6.7611, 53.1617
+2022-03-25 18:15:28, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 6.7611, 53.1617
+2022-03-25 18:17:06, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: weather_forecast, Location: 6.7611, 53.1617
+2022-03-25 18:17:49, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, timezone: local
+2022-03-25 18:18:21, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, timezone: Australia/Sydney
+2022-03-25 18:28:19, UUID: 8d119588-35d5-42e4-ab22-1013d60d5742, Command: get_current_time, timezone: local
