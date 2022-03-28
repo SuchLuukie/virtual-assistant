@@ -1,4 +1,5 @@
 # Import libraries
+import json
 import pandas as pd
 from currency_converter import CurrencyConverter
 from currency_symbols import CurrencySymbols
@@ -14,9 +15,10 @@ class IntentClassifier:
         # Read the CSV file
         self.data = pd.read_csv('intentClassification/intentClassificationData.csv')
 
+        # Conversion unit info
+        self.conversion_units = json.load(open("commands/math/unit_conversion.json"))["units"]
+
         # Train the intent classifier
-        print([CurrencySymbols.get_symbol(sign)
-              for sign in CurrencyConverter().currencies])
         self.train()
 
 
@@ -29,6 +31,18 @@ class IntentClassifier:
 
             elif self.check_if_int(split) or self.check_if_float(split):
                 split_text[idx] = "INTEGER"
+
+            elif idx != 0:
+                double_split = split_text[idx-1] + " " + split
+                if self.check_if_conversion_unit(double_split):
+                    del split_text[idx-1]
+                    split_text[idx-1] = "CONVERSION_UNIT"
+                    continue
+
+            if self.check_if_conversion_unit(split):
+                split_text[idx] = "CONVERSION_UNIT"
+
+
 
         return " ".join(split_text)
 
@@ -67,3 +81,13 @@ class IntentClassifier:
 
         except ValueError:
             return False
+
+
+    def check_if_conversion_unit(self, string):
+        for category in self.conversion_units:
+            for unit in self.conversion_units[category]:
+                for way_of_spelling in self.conversion_units[category][unit]:
+                    if string.lower() == way_of_spelling:
+                        return True
+
+        return False

@@ -4,6 +4,7 @@ from posixpath import split
 from commands.webScraping import WebScraping
 from commands.small_talk.small_talk import SmallTalk
 from commands.math.math import Math
+from commands.math.conversion import Conversion
 
 # Import libraries
 from timezonefinder import TimezoneFinder
@@ -24,6 +25,7 @@ class Commands:
 		# Extensions of commands for more organisation
 		self.small_talk = SmallTalk(self.log_command, self.uuid)
 		self.math = Math(self.log_command, self.uuid, self.operators)
+		self.conversion = Conversion(self.log_command, self.uuid)
 
 
 	def log_command(self, uuid, command, info = ""):

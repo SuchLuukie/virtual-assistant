@@ -1,0 +1,312 @@
+{
+    "units": {
+        "LENGTH": {
+            "kilometers": ["kilometer", "kilometers"],
+            "meters": ["meter", "meters"],
+            "centimeters": ["centimeter", "centimeters"],
+            "millimeters": ["millimeters", "millimeter"],
+            "miles": ["miles", "mile"],
+            "feet": ["feet", "foot"],
+            "yards": ["yards", "yard"],
+            "inches": ["inches", "inch"]
+        },
+        "TEMP": {
+            "celsius": ["celsius"],
+            "fahrenheit": ["fahrenheit"],
+            "kelvin": ["kelvin"]
+        },
+        "VOLUME": {
+            "kiloliters": ["kiloliters", "kiloliter"],
+            "liters": ["liter", "liters"],
+            "centiliters": ["centiliters", "centiliter"],
+            "milliliters": ["milliliters", "milliliter"],
+            "gallons": ["gallon", "gallons"],
+            "quarts": ["quarts", "quart"],
+            "pints": ["pints", "pint"],
+            "ounces": ["ounce", "ounces"]
+        },
+        "WEIGHT": {
+            "tonnes": ["tonne", "tonnes", "metric tons", "metric ton", "metric tonnes", "metric tonne"],
+            "kilograms": ["kilograms", "kilogram"],
+            "grams": ["grams", "gram"],
+            "milligrams": ["milligrams", "milligram"],
+            "tons": ["tons", "tonss", "imperial tons", "imperial ton", "imperial tonnes", "imperial tonne"],
+            "pounds": ["pounds", "pound"],
+            "ounces": ["ounces", "ounce"]
+        },
+        "AREA": {
+            "square kilometers": ["square kilometer", "square kilometers"],
+            "hectares": ["hectare", "hectares"],
+            "square meters": ["square meter", "square meters"],
+            "square miles": ["square mile", "square miles"],
+            "acres": ["acre", "acres"],
+            "square feet": ["square feet", "square foot"]
+        }
+    },
+    "conversion_rates": {
+        "LENGTH": {
+            "kilometers": {
+                "meters": "{} * 1000",
+                "centimeters": "{} * 100000",
+                "millimeters": "{} * 1000000",
+                "miles": "{} * 0.62137119224",
+                "feet": "{} * 3280.839895",
+                "yards": "{} * 1093.6132983",
+                "inches": "{} * 39370.1"
+            },
+            "meters": {
+                "kilometers": "{} / 1000",
+                "centimeters": "{} * 100",
+                "millimeters": "{} * 1000",
+                "miles": "{} * 0.00062137",
+                "feet": "{} * 3.28084",
+                "yards": "{} / 0.9144",
+                "inches": "{} * 39.37007874"
+            },
+            "centimeters": {
+                "kilometers": "{} * 0.00001",
+                "meters": "{} * 0.01",
+                "millimeters": "{} * 10",
+                "miles": "{} * 0.00000621371192",
+                "feet": "{} / 30.48",
+                "yards": "{} * 0.010936",
+                "inches": "{} * 0.393701"
+            },
+            "millimeters": {
+                "kilometers": "{} / 1000000",
+                "meters": "{} / 1000",
+                "centimeters": "{} / 10",
+                "miles": "{} / 1609344",
+                "feet": "{} / 304.8",
+                "yards": "{} * 0.001094",
+                "inches": "{} / 25.4"
+            },
+            "miles": {
+                "kilometers": "{} * 1.609344",
+                "meters": "{} * 1609.344",
+                "centimeters": "{} * 160934.4",
+                "millimeters": "{} * 1609344",
+                "feet": "{} * 5280",
+                "yards": "{} * 1760",
+                "inches": "{} * 63360"
+            },
+            "feet": {
+                "kilometers": "{} * 0.0003048",
+                "meters": "{} * 0.3048",
+                "centimeters": "{} * 30.48",
+                "millimeters": "{} * 304.8",
+                "miles": "{} / 5280",
+                "yards": "{} / 3",
+                "inches": "{} * 12"
+            },
+            "yards": {
+                "kilometers": "{} * 0.000914",
+                "meters": "{} * 0.9144",
+                "centimeters": "{} * 91.44",
+                "millimeters": "{} * 914.4",
+                "miles": "{} / 1760",
+                "feet": "{} * 3",
+                "inches": "{} * 36"
+            },
+            "inches": {
+                "kilometers": "{} * 0.0000254",
+                "meters": "{} * 0.0254",
+                "centimeters": "{} * 2.54",
+                "millimeters": "{} * 25.4",
+                "miles": "{} / 63360",
+                "feet": "{} * 0.0833",
+                "yards": "{} / 36"
+            }
+        },
+        "TEMP": {
+            "celsius": {
+                "kelvin": "{} - 273.15",
+                "fahrenheit": "{} * 1.8 + 32"
+            },
+            "fahrenheit": {
+                "celsius": "(({} - 32) * (5/9))",
+                "kelvin": "(({} - 32) * (5/9)) - 273.15"
+            },
+            "kelvin": {
+                "celsius": "{} + 273.15",
+                "fahrenheit": "({} + 273.15) * 1.8 + 32"
+            }
+        },
+        "VOLUME": {
+            "kiloliters": {
+                "liters": "{} * 1000",
+                "centiliters": "{} * 100000",
+                "milliliters": "{} * 1000000",
+                "gallons": "{} * 264.172",
+                "quarts": "{} * 1056.69",
+                "pints": "{} * 2113.38",
+                "ounces": "{} * 33814"
+            },
+            "liters": {
+                "kiloliters": "{} / 1000",
+                "centiliters": "{} * 100",
+                "milliliters": "{} * 1000",
+                "gallons": "{} * 0.264172",
+                "quarts": "{} * 1.05669",
+                "pints": "{} * 2.11338",
+                "ounces": "{} * 33.814"
+            },
+            "centiliters": {
+                "kiloliters": "{} / 100000",
+                "liters": "{} / 100",
+                "milliliters": "{} * 10",
+                "gallons": "{} / 379",
+                "quarts": "{} / 94.635",
+                "pints": "{} / 47.318",
+                "ounces": "{} / 2.957"
+            },
+            "milliliters": {
+                "kiloliters": "{} * 0.000001",
+                "liters": "{} / 1000",
+                "centiliters": "{} / 10",
+                "gallons": "{} / 3785",
+                "quarts": "{} / 946",
+                "pints": "{} / 473.18",
+                "ounces": "{} / 29,574"
+            },
+            "gallons": {
+                "kiloliters": "{} / 264",
+                "liters": "{} * 3.785",
+                "centiliters": "{} * 379",
+                "milliliters": "{} * 3785",
+                "quarts": "{} * 4",
+                "pints": "{} * 8",
+                "ounces": "{} * 128"
+            },
+            "quarts": {
+                "kiloliters": "{} / 1057",
+                "liters": "{} * 0.946352946",
+                "centiliters": "{} * 94.635",
+                "milliliters": "{} * 946",
+                "gallons": "{} / 4",
+                "pints": "{} * 2",
+                "ounces": "{} * 32"
+            },
+            "pints": {
+                "kiloliters": "{} / 2113",
+                "liters": "{} * 2.113",
+                "centiliters": "{} * 47.318",
+                "milliliters": "{} * 473.176473",
+                "gallons": "{} / 8",
+                "quarts": "{} / 2",
+                "ounces": "{} * 16"
+            },
+            "ounces": {
+                "kiloliters": "{} / 33814",
+                "liters": "{} / 33.814",
+                "centiliters": "{} * 2.957",
+                "milliliters": "{} * 29.574",
+                "gallons": "{} / 128",
+                "quarts": "{} / 32",
+                "pints": "{} / 16"
+            }
+        },
+        "WEIGHT": {
+            "tonnes": {
+                "kilograms": "{} * 1000",
+                "grams": "{} * 1000000",
+                "milligrams": "{} * 1000000000",
+                "tons": "{} * 1.1023",
+                "pounds": "{} * 2205",
+                "ounces": "{} * 35274"
+            },
+            "kilograms": {
+                "tonnes": "{} / 1000",
+                "grams": "{} * 1000",
+                "milligrams": "{} * 1000000",
+                "tons": "{} / 907",
+                "pounds": "{} * 2.205",
+                "ounces": "{} * 35.274"
+            },
+            "grams": {
+                "tonnes": "{} / 1000000",
+                "kilograms": "{} / 1000",
+                "milligrams": "{} * 1000",
+                "tons": "{} / 907185",
+                "pounds": "{} / 454",
+                "ounces": "{} / 28.35"
+            },
+            "milligrams": {
+                "tonnes": "{} / 1000000000",
+                "kilograms": "{} / 1000000",
+                "grams": "{} / 1000",
+                "tons": "{} * 0.0000000011023",
+                "pounds": "{} / 453592",
+                "ounces": "{} / 28350"
+            },
+            "tons": {
+                "tonnes": "{} / 1.102",
+                "kilograms": "{} * 907",
+                "grams": "{} * 907185",
+                "milligrams": "{} * 907184740",
+                "pounds": "{} * 2000",
+                "ounces": "{} * 32000"
+            },
+            "pounds": {
+                "tonnes": "{} / 2205",
+                "kilograms": "{} / 2.205",
+                "grams": "{} / 454",
+                "milligrams": "{} * 453592",
+                "tons": "{} / 2000",
+                "ounces": "{} * 16"
+            },
+            "ounces": {
+                "tonnes": "{} / 35274",
+                "kilograms": "{} / 35.274",
+                "grams": "{} * 28.35",
+                "milligrams": "{} * 28350",
+                "tons": "{} / 32000",
+                "pounds": "{} / 16"
+            }
+        },
+        "AREA": {
+            "square kilometers": {
+                "hectares": "{} * 100",
+                "square meters": "{} * 1000000",
+                "acres": "{} * 247",
+                "square miles": "{} / 2.59",
+                "square feet": "{} * 10763910.41675"
+            },
+            "hectares": {
+                "square kilometers": "{} / 100",
+                "square meters": "{} * 10000",
+                "acres": "{} * 2.471",
+                "square miles": "{} / 259",
+                "square feet": "{} * 107639"
+            },
+            "square meters": {
+                "square kilometers": "{} / 1000000",
+                "hectares": "{} * 10000",
+                "acres": "{} * 4047",
+                "square miles": "{} / 2589988.1",
+                "square feet": "{} * 10.764"
+            },
+            "acres": {
+                "square kilometers": "{} / 247",
+                "hectares": "{} * 0.404686",
+                "square meters": "{} / 4047",
+                "square miles": "{} / 640",
+                "square feet": "{} * 43560"
+            },
+            "square miles": {
+                "square kilometers": "{} * 2.59",
+                "hectares": "{} * 259",
+                "square meters": "{} * 2589988.1",
+                "acres": "{} * 640",
+                "square feet": "{} * 27878399.996383"
+            },
+            "square feet": {
+                "square kilometers": "{} / 10763910.41675",
+                "hectares": "{} / 107639",
+                "square meters": "{} / 10.764",
+                "acres": "{} / 43560",
+                "square miles": "{} / 27878399.996383"
+            }
+        }
+    }
+}
