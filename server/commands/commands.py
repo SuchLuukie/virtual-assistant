@@ -3,6 +3,7 @@ from distutils.command.clean import clean
 from posixpath import split
 from commands.webScraping import WebScraping
 from commands.small_talk.small_talk import SmallTalk
+from commands.math.math import Math
 
 # Import libraries
 from timezonefinder import TimezoneFinder
@@ -13,14 +14,16 @@ import pytz
 
 
 class Commands:
-	def __init__(self, settings, uuid):
+	def __init__(self, settings, uuid, operators):
 		self.uuid = uuid
 		self.settings = settings
+		self.operators = operators
 		self.web_scraping = WebScraping(self.settings)
 		self.geolocator = Nominatim(user_agent="athena_virtual_assistant")
 
 		# Extensions of commands for more organisation
-		self.small_talk = SmallTalk(self.settings, self.uuid)
+		self.small_talk = SmallTalk(self.log_command, self.uuid)
+		self.math = Math(self.log_command, self.uuid, self.operators)
 
 
 	def log_command(self, uuid, command, info = ""):
@@ -30,16 +33,6 @@ class Commands:
 		log_file.write(f"{time}, UUID: {uuid}, Command: {command}, {info}\n")
 		log_file.close()
 
-
-	# ! currently only works with integers and not floats
-	# ! Unsafe using eval, just temporary
-	def math(self, text):
-		return str(eval(text))
-
-
-	# TODO
-	def greeting(self, text):
-		return "Hello!"
 
 	# * Done
 	def get_current_time(self, text):
