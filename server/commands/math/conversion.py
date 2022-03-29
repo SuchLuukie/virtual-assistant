@@ -9,10 +9,21 @@ class Conversion:
         self.unit_conversion_dict = json.load(open("commands/math/unit_conversion.json"))
 
 
-    def convert_units(self, text):
+    def reverse_convert_units(self, text):
+        return self.convert_units(text, True)
+
+
+    def convert_units(self, text, reverse = False):
         amount = self.get_amount(text)
-        first_unit, second_unit = self.get_unit(text)
-        print(first_unit, second_unit)
+        if amount == None:
+            amount = 1
+
+        if reverse:
+            second_unit, first_unit = self.get_unit(text)
+
+        else:
+            first_unit, second_unit = self.get_unit(text)
+        
 
         category = self.get_category(first_unit, second_unit)
         equation = self.unit_conversion_dict["conversion_rates"][category][first_unit][second_unit].format(amount)

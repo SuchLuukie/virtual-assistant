@@ -11,3 +11,4 @@ what is INT OPERATOR INT,math.math
 what is INT OPERATOR INT OPERATOR INT,math.math
 what is INT OPERATOR INT OPERATOR INT OPERATOR INT,math.math
 what is INT CONVERSION_UNIT in CONVERSION_UNIT,conversion.convert_units
+how many CONVERSION_UNIT are in a CONVERSION_UNIT,conversion.reverse_convert_units
