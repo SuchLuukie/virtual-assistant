@@ -4,7 +4,8 @@ from posixpath import split
 from commands.webScraping import WebScraping
 from commands.small_talk.small_talk import SmallTalk
 from commands.math.math import Math
-from commands.math.conversion import Conversion
+from commands.math.unit_conversion import UnitConversion
+from commands.math.currency_conversion import CurrencyConversion
 
 # Import libraries
 from timezonefinder import TimezoneFinder
@@ -25,8 +26,8 @@ class Commands:
 		# Extensions of commands for more organisation
 		self.small_talk = SmallTalk(self.log_command, self.uuid)
 		self.math = Math(self.log_command, self.uuid, self.operators)
-		self.conversion = Conversion(self.log_command, self.uuid)
-
+		self.conversion_unit = UnitConversion(self.log_command, self.uuid)
+		self.conversion_currency = CurrencyConversion(self.log_command, self.uuid, self.web_scraping)
 
 	def log_command(self, uuid, command, info = ""):
 		time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')

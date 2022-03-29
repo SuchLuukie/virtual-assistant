@@ -10,5 +10,6 @@ tell me a joke,small_talk.joke
 what is INT OPERATOR INT,math.math
 what is INT OPERATOR INT OPERATOR INT,math.math
 what is INT OPERATOR INT OPERATOR INT OPERATOR INT,math.math
-what is INT CONVERSION_UNIT in CONVERSION_UNIT,conversion.convert_units
-how many CONVERSION_UNIT are in a CONVERSION_UNIT,conversion.reverse_convert_units
+what is INT CONVERSION_UNIT in CONVERSION_UNIT,conversion_unit.convert_units
+how many CONVERSION_UNIT are in a CONVERSION_UNIT,conversion_unit.reverse_convert_units
+how much is INT CONVERSION_CURRENCY in CONVERSION_CURRENCY,conversion_currency.convert_units

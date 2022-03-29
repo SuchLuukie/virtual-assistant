@@ -1,7 +1,7 @@
 # Import libraries
 import json
 
-class Conversion:
+class UnitConversion:
     def __init__(self, log_command, uuid):
         self.log_command = log_command
         self.uuid = uuid
@@ -14,6 +14,7 @@ class Conversion:
 
 
     def convert_units(self, text, reverse = False):
+        self.log_command(self.uuid, "convert_units")
         amount = self.get_amount(text)
         if amount == None:
             amount = 1
@@ -25,9 +26,14 @@ class Conversion:
             first_unit, second_unit = self.get_unit(text)
         
 
-        category = self.get_category(first_unit, second_unit)
-        equation = self.unit_conversion_dict["conversion_rates"][category][first_unit][second_unit].format(amount)
-        result = eval(equation)
+        try:
+            category = self.get_category(first_unit, second_unit)
+            equation = self.unit_conversion_dict["conversion_rates"][category][first_unit][second_unit].format(amount)
+            result = eval(equation)
+
+        except KeyError:
+            return "I'm not quite sure what you mean"
+
         
         if type(result) is float:
             return f"approximately {round(result, 2)} {second_unit}"
@@ -50,8 +56,6 @@ class Conversion:
             idk = self.get_unit_conversion(split)
             if idk != False:
                 units.append(idk)
-
-
         return units
 
     def get_amount(self, text):

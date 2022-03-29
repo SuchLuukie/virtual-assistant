@@ -1,0 +1,192 @@
+{
+    "USD": [
+        "us dollars",
+        "us dollar",
+        "dollar",
+        "dollars"
+    ],
+    "EUR": [
+        "euros",
+        "euro"
+    ],
+    "AUD": [
+        "australian dollars",
+        "australian dollar"
+    ],
+    "NOK": [
+        "norwegian krone",
+        "norwegian krones",
+        "krone",
+        "krones"
+    ],
+    "BRL": [
+        "brazilian real",
+        "brazilian reals",
+        "real",
+        "reals"
+    ],
+    "BGN": [
+        "bulgarian lev",
+        "bulgarian levs",
+        "lev",
+        "levs"
+    ],
+    "CAD": [
+        "canadian dollars",
+        "canadian dollar"
+    ],
+    "CNY": [
+        "yuan renminbi",
+        "yuan",
+        "yuans"
+    ],
+    "NZD": [
+        "new zealand dollar",
+        "new zealand dollars"
+    ],
+    "HRK": [
+        "croatian kuna",
+        "croatian kunas",
+        "kuna",
+        "kunas"
+    ],
+    "CZK": [
+        "czech koruna",
+        "czech korunas",
+        "koruna",
+        "korunas"
+    ],
+    "DKK": [
+        "danish krone",
+        "danish krones"
+    ],
+    "HKD": [
+        "hong kong dollar",
+        "hong kong dollars"
+    ],
+    "HUF": [
+        "hungarian forint",
+        "hungarian forints",
+        "forint",
+        "forints"
+    ],
+    "ISK": [
+        "iceland krona",
+        "iceland kronas",
+        "icelandic krona",
+        "icelandic kronas"
+    ],
+    "INR": [
+        "indian rupee",
+        "indian rupees",
+        "rupee",
+        "rupees"
+    ],
+    "IDR": [
+        "indonesian rupiah",
+        "indonesian rupiahs",
+        "rupiah",
+        "rupiahs"
+    ],
+    "GBP": [
+        "pound sterling",
+        "pounds sterling",
+        "pound",
+        "pounds",
+        "quid"
+    ],
+    "ILS": [
+        "israeli new shekel",
+        "israeli new shekels",
+        "israeli shekel",
+        "israeli shekel",
+        "shekel",
+        "shekels"
+    ],
+    "JPY": [
+        "japanese yen",
+        "yen"
+    ],
+    "KRW": [
+        "korean won",
+        "won"
+    ],
+    "LVL": [
+        "latvian lats",
+        "lats"
+    ],
+    "CHF": [
+        "swiss franc",
+        "swiss francs",
+        "franc",
+        "francs"
+    ],
+    "LTL": [
+        "lithuanian litas",
+        "lithuanian lita",
+        "litas",
+        "lita"
+    ],
+    "MYR": [
+        "malaysian ringgit",
+        "malaysian ringgits",
+        "ringgit",
+        "ringgits"
+    ],
+    "MXN": [
+        "mexican nuevo peso",
+        "mexican nuevo pesos",
+        "peso",
+        "pesos"
+    ],
+    "PHP": [
+        "philippine peso",
+        "philippine pesos"
+    ],
+    "PLN": [
+        "polish zloty",
+        "polish zlotys",
+        "zlotys",
+        "zloty"
+    ],
+    "RON": [
+        "romanian new leu",
+        "romanian new leus",
+        "leu",
+        "leus"
+    ],
+    "RUB": [
+        "russian rubles",
+        "russian ruble",
+        "ruble",
+        "rubles"
+    ],
+    "SGD": [
+        "singapore dollars",
+        "singapore dollar"
+    ],
+    "ZAR": [
+        "south african rand",
+        "south african rands",
+        "rand",
+        "rands"
+    ],
+    "SEK": [
+        "swedish krona",
+        "swedish kronas",
+        "krona",
+        "kronas"
+    ],
+    "THB": [
+        "thai baht",
+        "thai bahts",
+        "baht",
+        "bahts"
+    ],
+    "TRY": [
+        "turkish lira",
+        "turkish liras",
+        "lira",
+        "liras"
+    ]
+}

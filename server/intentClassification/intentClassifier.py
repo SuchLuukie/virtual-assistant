@@ -17,6 +17,7 @@ class IntentClassifier:
 
         # Conversion unit info
         self.conversion_units = json.load(open("commands/math/unit_conversion.json"))["units"]
+        self.conversion_currency = json.load(open("commands/math/currency_conversion.json"))
 
         # Train the intent classifier
         self.train()
@@ -39,10 +40,16 @@ class IntentClassifier:
                     split_text[idx-1] = "CONVERSION_UNIT"
                     continue
 
+                if self.check_if_conversion_currency(double_split):
+                    del split_text[idx-1]
+                    split_text[idx-1] = "CONVERSION_CURRENCY"
+                    continue
+
             if self.check_if_conversion_unit(split):
                 split_text[idx] = "CONVERSION_UNIT"
 
-
+            if self.check_if_conversion_currency(split):
+                split_text[idx] = "CONVERSION_CURRENCY"
 
         return " ".join(split_text)
 
@@ -89,5 +96,13 @@ class IntentClassifier:
                 for way_of_spelling in self.conversion_units[category][unit]:
                     if string.lower() == way_of_spelling:
                         return True
+
+        return False
+
+    def check_if_conversion_currency(self, string):
+        for currency in self.conversion_currency:
+            for way_of_spelling in self.conversion_currency[currency]:
+                if string.lower() == way_of_spelling:
+                    return True
 
         return False

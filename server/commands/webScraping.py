@@ -22,3 +22,13 @@ class WebScraping:
 		info = "{} degrees and {}".format(
 			round(forecast["main"]["temp"]), forecast["weather"][0]["description"])
 		return info
+
+
+	def currency_rates_api(self):
+		currency_rates_api_key = self.api_keys["ExchangeRateAPI"]
+
+		currency_rates = requests.get("http://api.exchangeratesapi.io/v1/latest?access_key={}".format(
+			currency_rates_api_key
+		)).json()
+
+		return currency_rates
