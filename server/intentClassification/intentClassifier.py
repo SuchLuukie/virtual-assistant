@@ -69,7 +69,6 @@ class IntentClassifier:
     # Predicts intent from text
     def predict(self, text):
         prepared_text = self.prepare_text(text)
-        print(prepared_text)
         return self.clf.predict(self.count_vect.transform([prepared_text]))[0]
 
 

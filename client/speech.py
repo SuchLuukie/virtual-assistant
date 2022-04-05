@@ -22,7 +22,7 @@ class Speech:
         self.listen = True
         # Listen for audio, if audio is detected try to perform audio to text
         with self.mic as source:
-            self.r.adjust_for_ambient_noise(source, duration=1)
+            self.r.adjust_for_ambient_noise(source, duration=5)
             while self.listen:
                 try:
                     audio = self.r.listen(source, phrase_time_limit=self.phrase_timeout_time)
