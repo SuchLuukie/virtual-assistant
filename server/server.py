@@ -6,7 +6,6 @@ from flask_restful import Api
 from endpoints.command import Command
 from endpoints.login import Login
 from endpoints.reminders import Reminders, RemindersExample
-from endpoints.intent_update import Intent_update
 
 # Portfolio endpoints
 from portfolio.index import Index
@@ -24,9 +23,8 @@ class Server:
         # Add the API endpoints
         self.api.add_resource(Command, "/api/command")
         self.api.add_resource(Login, "/api/login")
-        self.api.add_resource(Reminders, "/api/reminders")
-        self.api.add_resource(RemindersExample, "/api/reminders/example")
-        self.api.add_resource(Intent_update, "/api/intent_update")
+        #self.api.add_resource(Reminders, "/api/reminders")
+        #self.api.add_resource(RemindersExample, "/api/reminders/example")
 
         # Add the Portfolio endpoints
         self.api.add_resource(Index, "/")

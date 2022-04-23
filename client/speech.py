@@ -35,6 +35,7 @@ class Speech:
 
     # Recognize text from audio
     def audio_to_text(self, audio):
+        print(audio)
         text = self.r.recognize_google(audio)
         self.process_command(text.lower())
 
